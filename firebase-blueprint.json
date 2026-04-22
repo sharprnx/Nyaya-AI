@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile populated from Google Auth",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string", "description": "User's display name" },
+        "email": { "type": "string", "description": "User's email address" },
+        "createdAt": { "type": "timestamp" },
+        "updatedAt": { "type": "timestamp" }
+      },
+      "required": ["displayName", "email", "createdAt", "updatedAt"]
+    },
+    "Search": {
+      "title": "Search",
+      "description": "A user's legal query history record",
+      "type": "object",
+      "properties": {
+        "query": { "type": "string", "description": "The search query text" },
+        "responseSummary": { "type": "string", "description": "A short summary of the AI response" },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["query", "createdAt"]
+    },
+    "Bookmark": {
+      "title": "Bookmark",
+      "description": "A bookmarked legal section or case",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Title of the law or section (e.g., BNS Section 10)" },
+        "description": { "type": "string", "description": "Brief description or summary" },
+        "content": { "type": "string", "description": "Full text or detailed explanation" },
+        "category": { "type": "string", "description": "Category like BNS, IPC, etc." },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["title", "description", "category", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profile data."
+    },
+    "users/{userId}/searches/{searchId}": {
+      "schema": "Search",
+      "description": "Search history for a specific user."
+    },
+    "users/{userId}/bookmarks/{bookmarkId}": {
+      "schema": "Bookmark",
+      "description": "Saved bookmarks for a specific user."
+    }
+  }
+}

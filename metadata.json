@@ -1,0 +1,7 @@
+{
+  "name": "Nyaya AI - Legal Companion",
+  "description": "A premium, AI-powered personal legal companion designed for Indian users, providing legal clarity, scenario analysis, and guidance on frameworks like the Bharatiya Nyaya Sanhita.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
